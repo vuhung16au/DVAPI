@@ -74,6 +74,56 @@ docker compose up --build
 
 **Disclaimer: As this application is intentionally vulnerable, do not host this on a production environment.** 
 
+## Using Make Tools
+
+DVAPI includes a Makefile with convenient commands for common tasks:
+
+### Prerequisites Check
+```bash
+make check          # Verify Docker, docker-compose, and curl are installed
+```
+
+### Docker Management
+```bash
+make build-docker   # Build Docker images and start containers
+make start-docker   # Alias to build-docker (build and start)
+make stop-docker    # Stop Docker containers
+```
+
+### Automated Exploitation
+```bash
+make exploit        # Run automated exploit scripts using curl to test all 10 vulnerabilities
+```
+
+The exploit script will:
+- Register a test user
+- Log in to obtain a JWT token
+- Run all 10 exploit scripts sequentially
+- Log results to `logs/` directory
+
+### Report Generation
+```bash
+make report         # Generate HTML report from exploit results
+```
+
+The report includes:
+- Summary statistics (total challenges, success rate, flags captured)
+- Detailed status for each challenge
+- Flags found during exploitation
+- Execution timestamps and notes
+
+Reports are saved to `reports/exploit-report-YYYYMMDD-HHMMSS.html`
+
+### Help
+```bash
+make help           # Display all available make targets
+```
+
+### Cleanup
+```bash
+make clean          # Remove log files and generated reports
+```
+
 # References
 
 Files users should read:

@@ -24,9 +24,20 @@ The application provides:
    cd DVAPI
    ```
 
-2. **Build the Docker containers:**
+2. **Check prerequisites:**
+   ```bash
+   make check
+   ```
+   This verifies that Docker, docker-compose, and curl are installed.
+
+3. **Build the Docker containers:**
    ```bash
    docker compose build
+   ```
+   
+   Or use the Makefile:
+   ```bash
+   make build-docker
    ```
 
    This will:
@@ -46,6 +57,12 @@ Or to build and run in one command:
 docker compose up --build
 ```
 
+**Using Makefile (recommended):**
+```bash
+make build-docker   # Build and start containers
+make start-docker   # Alias to build-docker
+```
+
 The application will be available at:
 - **Web Interface**: http://127.0.0.1:3000
 - **API**: http://127.0.0.1:3000/api
@@ -54,6 +71,11 @@ The application will be available at:
 **Stop the application:**
 ```bash
 docker compose down
+```
+
+Or using Makefile:
+```bash
+make stop-docker
 ```
 
 ## Solve the CTF
@@ -105,3 +127,82 @@ Flags are encrypted using AES-256-CBC with a hardcoded key. After capturing encr
 - Check `docs/TechStacks.md` for technology details
 
 **⚠️ Warning**: This application is intentionally vulnerable. Never deploy it in a production environment!
+
+## Using Make Tools
+
+DVAPI includes a Makefile with convenient commands for automation and testing:
+
+### Quick Commands
+
+```bash
+make help           # Show all available make targets
+make check         # Verify prerequisites (Docker, docker-compose, curl)
+make build-docker  # Build and start Docker containers
+make start-docker  # Alias to build-docker
+make stop-docker   # Stop Docker containers
+```
+
+### Automated Exploitation
+
+Run automated exploit scripts to test all 10 vulnerabilities:
+
+```bash
+make exploit
+```
+
+This will:
+- Register a test user automatically
+- Log in to get a JWT token
+- Execute all 10 exploit scripts sequentially
+- Save detailed logs to `logs/` directory
+- Extract flags when found
+
+Each exploit script tests a specific OWASP API Top 10 vulnerability using curl commands.
+
+### Generate Reports
+
+Create an HTML report from exploit results:
+
+```bash
+make report
+```
+
+The report includes:
+- Summary statistics (success rate, flags captured)
+- Detailed status for each challenge
+- Flags found during exploitation
+- Execution timestamps and notes
+
+Reports are saved as `reports/exploit-report-YYYYMMDD-HHMMSS.html` and can be opened in any web browser.
+
+### Cleanup
+
+Remove generated logs and reports:
+
+```bash
+make clean
+```
+
+### Example Workflow
+
+```bash
+# 1. Check prerequisites
+make check
+
+# 2. Start DVAPI
+make build-docker
+
+# 3. Wait for services to be ready (about 10-15 seconds)
+
+# 4. Run automated exploits
+make exploit
+
+# 5. Generate HTML report
+make report
+
+# 6. Open the report in your browser
+# (path will be shown in terminal output)
+
+# 7. When done, stop containers
+make stop-docker
+```
