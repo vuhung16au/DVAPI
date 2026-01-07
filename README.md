@@ -72,6 +72,14 @@ docker compose up --build
 
 ![](images/dvapi.png)
 
+### Test User Credentials
+
+A pre-configured test user is available for use across all CTF challenges:
+- **Username**: `rnd`
+- **Password**: `research`
+
+This user can be used to login, submit flags, and test all challenges.
+
 **Disclaimer: As this application is intentionally vulnerable, do not host this on a production environment.** 
 
 ## Using Make Tools

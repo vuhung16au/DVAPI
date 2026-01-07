@@ -82,6 +82,14 @@ make stop-docker
 
 DVAPI contains 10 challenges corresponding to the OWASP API Top 10 2023 vulnerabilities. Each challenge requires you to exploit a specific vulnerability to obtain an encrypted flag.
 
+### Test User Credentials
+
+A pre-configured test user is available for use across all CTF challenges:
+- **Username**: `rnd`
+- **Password**: `research`
+
+This user can be used to login, submit flags, and test all challenges.
+
 ### General Approach
 
 1. **Register/Login**: Create an account or log in to get a JWT authentication token
