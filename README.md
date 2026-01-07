@@ -43,7 +43,7 @@ All in all, users have the flexibility to assess the APIs via these methods:
 - The application itself
 - Postman collection
     - Get the Postman collection on [DVAPI.postman_collection.json](src/swagger/DVAPI.postman_collection.json)
-    - You can also fork the collection from our public Postman workspace at [https://www.postman.com/payatu/workspace/dvapi](https://www.postman.com/payatu/workspace/dvapi)
+
 - Swagger API endpoint (accessible at the `/Swagger` endpoint on the DVAPI lab)
 
 ## Setting up DVAPI
@@ -53,7 +53,7 @@ To get started with the DVAPI lab, follow the steps below:
 1.  **Clone the repository:**
 
 ```bash
-git clone https://github.com/payatu/DVAPI.git
+git clone https://github.com/vuhung16au/DVAPI
 ```
 
 2.  Navigate to the DVAPI directory:.
@@ -74,30 +74,18 @@ docker compose up --build
 
 **Disclaimer: As this application is intentionally vulnerable, do not host this on a production environment.** 
 
-# Upcoming/Past Sessions
+# References
 
-Our team has presented DVAPI in [Bsides Bangalore 2023 ToolsForge](https://bsidesbangalore.in/) on 8th June 2023.
+Files users should read:
 
-# Feedback & Bug Reports
+- **[QUICKSTART.md](docs/QUICKSTART.md)** - Quick start guide to get you up and running with DVAPI
+- **[Top10-Vulns.md](docs/Top10-Vulns.md)** - Detailed information about how and where the OWASP API Top 10 2023 vulnerabilities are implemented
+- **[CTF.md](docs/CTF.md)** - Guide to the CTF challenges and how to capture and submit flags
+- **[TechStacks.md](docs/TechStacks.md)** - Overview of the technologies and frameworks used in the DVAPI project
 
-If you have any feedback or find any bugs in the app, please feel free to open an issue on this repository.
+
 
 # Core Team
+Forked from the up stream : https://github.com/payatu/DVAPI
 
-### Bandit Manash (developer)
-- [linkedin](https://www.linkedin.com/in/manash-saikia)
-- [@manash036](https://twitter.com/manash036)
 
-### Bandit Samuel (developer)
-- [linkedin](https://www.linkedin.com/in/samuel-valmiki-6a39371a8)
-- [@sign3tsh3l1](https://twitter.com/sign3tsh3l1)
-
-### Suraj Kumar (project lead)
-- [linkedin](https://www.linkedin.com/in/surajkum4r)
-- [@surajkum4r](https://twitter.com/surajkum4r)
-
-# About Payatu
-
-[Payatu](https://payatu.com/) is a leading cybersecurity firm in India, offering a comprehensive range of services to enhance organizational security. Their expertise includes security consulting, training, and research. Payatu's security consulting services encompass thorough assessments, penetration testing, and code reviews, providing actionable recommendations to address vulnerabilities effectively. They specialize in delivering training programs that cover diverse cybersecurity aspects, fostering a strong security mindset among professionals. Additionally, Payatu excels in IoT security and embedded systems security, helping organizations secure interconnected devices and systems with their in-depth knowledge. Their active research and development efforts contribute to the cybersecurity community by exploring vulnerabilities, exploits, and emerging technologies.
-
-With a diverse client base across industries like healthcare, finance, automotive, and manufacturing, Payatu is renowned for its technical expertise, professionalism, and commitment to delivering high-quality security services. Their holistic approach helps organizations identify and mitigate risks, establish robust security measures, and safeguard valuable assets effectively.
