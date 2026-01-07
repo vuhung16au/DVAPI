@@ -2,4 +2,9 @@ src/node_modules/*
 src/package-lock.json
 src/uploads/*
 
+reports/
+logs/
+*.log
+*.flag
+
 Prompt.md

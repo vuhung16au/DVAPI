@@ -140,6 +140,8 @@ Flags are encrypted using AES-256-CBC with a hardcoded key. After capturing encr
 
 DVAPI includes a Makefile with convenient commands for automation and testing:
 
+> **💡 Quick Tip**: If you want a single command to demonstrate everything, run `make full-flow`. This will build Docker containers, run all exploits, and generate the final report automatically.
+
 ### Quick Commands
 
 ```bash
@@ -193,6 +195,13 @@ make clean
 
 ### Example Workflow
 
+**Option 1: Single Command (Recommended)**
+```bash
+# Run everything in one command: build → exploit → report
+make full-flow
+```
+
+**Option 2: Step-by-Step**
 ```bash
 # 1. Check prerequisites
 make check

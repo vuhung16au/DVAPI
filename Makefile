@@ -1,4 +1,4 @@
-.PHONY: help check build-docker start-docker stop-docker exploit report clean
+.PHONY: help check build-docker start-docker stop-docker exploit report clean full-flow
 
 # Default target
 .DEFAULT_GOAL := help
@@ -20,6 +20,7 @@ help: ## Display this help message
 	@echo "  make stop-docker   - Stop Docker containers"
 	@echo "  make exploit       - Run automated exploit scripts using Node.js"
 	@echo "  make report        - Generate HTML report from exploit results"
+	@echo "  make full-flow     - Run complete CTF flow: build-docker → exploit → report"
 	@echo "  make clean         - Clean logs and reports directories"
 	@echo ""
 	@echo "Variables:"
@@ -71,6 +72,15 @@ report: ## Generate HTML report from exploit results
 	@node $(SCRIPTS_DIR)/generate-report.js $(BASE_URL) $(REPORTS_DIR)
 	@echo ""
 	@echo "✅ Report generated. Check $(REPORTS_DIR)/ for the HTML report."
+
+full-flow: build-docker exploit report ## Run complete CTF flow: build-docker → exploit → report
+	@echo ""
+	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	@echo "✅ Full CTF flow completed successfully!"
+	@echo ""
+	@echo "📊 Final report location: $(REPORTS_DIR)/"
+	@echo "   Check the HTML report files in the reports directory for detailed results."
+	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 clean: ## Clean logs and reports directories
 	@echo "Cleaning logs and reports..."
