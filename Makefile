@@ -1,4 +1,4 @@
-.PHONY: help check build-docker start-docker stop-docker exploit report clean full-flow
+.PHONY: help check build-docker start-docker stop-docker exploit report clean clean-data full-flow
 
 # Default target
 .DEFAULT_GOAL := help
@@ -22,6 +22,7 @@ help: ## Display this help message
 	@echo "  make report        - Generate HTML report from exploit results"
 	@echo "  make full-flow     - Run complete CTF flow: build-docker → exploit → report"
 	@echo "  make clean         - Clean logs and reports directories"
+	@echo "  make clean-data    - Delete all files in logs and reports directories (including .flag files)"
 	@echo ""
 	@echo "Variables:"
 	@echo "  BASE_URL           - DVAPI base URL (default: http://localhost:3000)"
@@ -87,3 +88,9 @@ clean: ## Clean logs and reports directories
 	@rm -rf $(LOGS_DIR)/*.log
 	@rm -rf $(REPORTS_DIR)/*.html
 	@echo "✅ Clean completed"
+
+clean-data: ## Delete all files in logs and reports directories (including .flag files)
+	@echo "Deleting all files in logs and reports directories (including .flag files)..."
+	@if [ -d "$(LOGS_DIR)" ]; then find $(LOGS_DIR) -type f -delete; fi
+	@if [ -d "$(REPORTS_DIR)" ]; then find $(REPORTS_DIR) -type f -delete; fi
+	@echo "✅ All files deleted from logs and reports directories"
